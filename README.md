@@ -9,13 +9,17 @@ The goal of this lab is to get comfortable with the basic conventions of circuit
 <details open>
   <summary>Overview</summary>
 
-  * [COMP311: Lab 0](#comp311-lab-0)
-    * [GitHub Desktop](#github-desktop)
-    * [Digital: Circuit design and simulation software](#digital-circuit-design-and-simulation-software)
-    * [Circuit design](#circuit-design)
-    * [First circuit](#first-circuit)
-    * [Slight enhancement to first circuit](#slight-enhancement-to-first-circuit)
-    * [Submit your assignment](#submit-your-assignment)
+- [COMP 311: Lab 0](#comp-311-lab-0)
+  - [GitHub Desktop](#github-desktop)
+  - [Digital: Circuit design and simulation software](#digital-circuit-design-and-simulation-software)
+    - [Windows installation](#windows-installation)
+    - [macOS/Linux installation](#macoslinux-installation)
+      - [Optional](#optional)
+    - [Instructions for Digital](#instructions-for-digital)
+  - [Circuit design](#circuit-design)
+  - [First circuit](#first-circuit)
+  - [Slight enhancement to first circuit](#slight-enhancement-to-first-circuit)
+  - [Submit your assignment](#submit-your-assignment)
 </details>
 
 ## GitHub Desktop
@@ -34,7 +38,7 @@ Before proceeding, please clone this repository using the clone instructions pro
 
 ## Digital: Circuit design and simulation software
 
-A Java Runtime Environment (at least JRE 8) is required to run Digital. You should already have one if you've completed COMP210 or COMP301 and haven't switched computers. If not, please search online for installation instructions for your specific OS and install. **Make sure it can be run from the command line, and check the version with `java --version`**.
+A Java Runtime Environment (at least JRE 8) is required to run Digital. You should already have one if you're using the same computer you used in COMP 210 or COMP 301. If not, please search online for installation instructions for your specific OS and install. **Make sure it can be run from the command line, and check the version with `java --version`**.
 
 ### Windows installation
 
@@ -46,30 +50,23 @@ Please skip over the macOS/Linux installation section to [Instructions for Digit
 
 ### macOS/Linux installation
 
-Pick a folder to download the Digital folder to, copy `install_digital.sh` there, and run the script **from that directory** with `./install_digital.sh`. You may first have to run `chmod u+x install_digital.sh` to make the script executable.
-
-This script will download the Digital folder into the folder you run the script from, and you should not delete or move it afterward. If you do want to delete or move the Digital folder, then search your `~/.bashrc` or `~/.zshrc` file (whichever your default shell is) for the line `alias digital=...` and change the path to the new one.
-
-**Restart your terminal** after running this script.
-
-After restarting your terminal, you can run Digital from your terminal by typing `digital`. You can also type `digital <file>` to open `<file>` in Digital (this will avoid a bug with Digital's Open menu where `.dig` files aren't shown, if you happen to run into this).
-
-Just in case this script doesn't work for you, manual installation instructions are provided below.
-
-#### Manual installation
-
 Follow the instructions on the [Digital](https://github.com/hneemann/Digital) GitHub page for downloading and running the software program (no installation required). In short, you simply download the .zip file and unzip it.
 
 To start Digital, open a terminal and run `Digital.jar` with `java -jar PATH/TO/Digital.jar`.
 
-macOS and Linux users, if the Open menu does not display your `.dig` files, then open `.dig` files by passing them as a command-line argument to the shell script. For example, if you want to open the file `~/circuit.dig`, then run `java -jar Digital.jar ~/circuit.dig`. You can drag a file from Finder to the terminal to automatically paste its absolute path.
+#### Optional
 
-To easily start Digital without having to type the full path to `Digital.jar`, you can alias the command. See the last line of `install_digital.sh` for how to do that. Then you'll be able to type `digital` from any directory to run Digital.
+If you encounter an uncommon bug where the Open menu does not display `.dig` files, then open `.dig` files by passing them as a command-line argument. For example, if you want to open the file `~/circuit.dig`, then run `java -jar Digital.jar ~/circuit.dig`. You can drag a file from Finder to the terminal to automatically paste its absolute path.
+
+To easily start Digital without having to type the path to `Digital.jar`, you can alias the command. Run `echo "alias digital=\"java -jar $ABSOLUTE_PATH_TO_DIGITAL_JAR\"" >> $HOME/.zshrc`, replacing `$ABSOLUTE_PATH_TO_DIGITAL_JAR` with your **absolute** path to `Digital.jar`. If your default shell is bash (check with `echo $SHELL`), then you'll want to use `.bashrc` instead. **Restart your terminal**.
+
+You'll now be able to type `digital` or `digital <file>` from any directory to run Digital.
 
 ### Instructions for Digital
 
 Within Digital, you can access a useful help document by clicking **Help > Documentation**. We recommend reading
-- `Section 1`: How to navigate through the program and create simple circuits. 
+
+- `Section 1`: How to navigate through the program and create simple circuits.
 - `Secion 3.2`: LED with two connections.
 - `Sections 6.1 and 6.2`: Ground and voltage supply or **power**.
 - `Section 13.1`: Mechanical on/off switch.
@@ -86,7 +83,7 @@ Start Digital and open the file `Lab00a.dig`. You do not need to edit this circu
 
 ## Slight enhancement to first circuit
 
-This part is just a slight enhancement of the circuit in Section 3. We'll modify our circuit to act as a kind of **“mechanical AND gate,”** where the LED will only turn on if two switches are both in the **closed** position. This is simply wiring two switches in series, not using any **AND** gates (or indeed any logic gates at all). 
+This part is just a slight enhancement of the circuit in Section 3. We'll modify our circuit to act as a kind of **“mechanical AND gate,”** where the LED will only turn on if two switches are both in the **closed** position. This is simply wiring two switches in series, not using any **AND** gates (or indeed any logic gates at all).
 
 The one complication in this part of the lab is that we want to wire the two switches in such a way that the LED will only turn on when both switches are in the closed position. This will require some small modification to the switch wiring: one switch will need to select between ground and the output of the previous switch.
 
@@ -94,7 +91,7 @@ There is one important step you must take while constructing Digital circuits fo
 
 ![image](https://user-images.githubusercontent.com/55986131/149873493-8da11454-750e-466d-b3ae-31c0fd0025d6.png)
 
-Construct your design in Digital using the `Lab00b.dig` file as a start. You should only need to add wires and delete wires, not add any additional components. Verify that your design works in Digital by using the `play` button to simulate the circuit. You should only see the LED light up when both switches are in the closed position. 
+Construct your design in Digital using the `Lab00b.dig` file as a start. You should only need to add wires and delete wires, not add any additional components. Verify that your design works in Digital by using the `play` button to simulate the circuit. You should only see the LED light up when both switches are in the closed position.
 
 **Note:** It is possible to create a mechanical **AND** gate design that seems to work according to the first paragraph of this section when the simulation is run yet fails the autograder tests. This may occur if you move the switches, which is not required, or otherwise wire the circuit improperly. These designs don't pass the tests because they are considered incorrect.
 
