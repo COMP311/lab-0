@@ -18,7 +18,7 @@ The goal of this lab is to get comfortable with the basic conventions of circuit
     - [Instructions for Digital](#instructions-for-digital)
   - [Circuit design](#circuit-design)
   - [First circuit](#first-circuit)
-  - [Slight enhancement to first circuit](#slight-enhancement-to-first-circuit)
+  - [Mechanical AND gate](#mechanical-and-gate)
   - [Submit your assignment](#submit-your-assignment)
 </details>
 
@@ -28,11 +28,11 @@ Throughout this semester, you will be responsible for managing (cloning & commit
 
 The links below provide step-by-step instructions along with visual aids about how to use GitHub Desktop:
 
-* [Install](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) GitHub Desktop.
-* [Authenticate](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github) to GitHub.
-* [Clone](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop) a repository from GitHub to GitHub Desktop.
-* [Commit](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project) your changes to the repository.
-* [Push](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github) your changes to the repository.
+- [Install](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) GitHub Desktop.
+- [Authenticate](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github) to GitHub.
+- [Clone](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop) a repository from GitHub to GitHub Desktop.
+- [Commit](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project) your changes to the repository.
+- [Push](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github) your changes to the repository.
 
 Before proceeding, please clone this repository using the clone instructions provided above.
 
@@ -77,25 +77,31 @@ Using Digital, we'll wire up a very simple circuit that uses power, ground, one 
 
 ## First circuit
 
-Start Digital and open the file `Lab00a.dig`. You do not need to edit this circuit in any way; it serves simply as an example of what a completed circuit in Digital looks like. Use this file to familiarize yourself with the Digital software. For example, pressing the `play` button in the top right corner of the Digital software will allow you to simulate the circuit. Try flipping the switch and seeing how it affects the output of the LED. Carefully inspect how the LED is wired, and notice which components represent power (logic 1) and which represent ground (logic 0). When you press the `play` button, certain wires will light up - these wires are the ones that are connected to power. Understanding and analyzing how this circuit works will be crucial to being able to complete the second part of this lab.
+Start Digital and open the file `Lab00a.dig`. You do not need to edit this circuit in any way; it serves simply as an example of what a completed circuit in Digital looks like. Use this file to familiarize yourself with the Digital software. For example, pressing the triangular `play` button in the top right corner of the Digital software will allow you to simulate the circuit. Try flipping the switch and seeing how it affects the output of the LED. Carefully inspect how the LED is wired, and notice which components represent power (logic 1) and which represent ground (logic 0). When you press the `play` button, certain wires will light up - these wires are the ones that are connected to power. Understanding and analyzing how this circuit works will be crucial to being able to complete the second part of this lab.
 
 **What to submit?** There is nothing to "submit" for this part of the lab. Just make sure the `Lab00a.dig` file is still included in your repository when you submit on Gradescope. However, please note, if you do not spend enough time on this section of the lab understanding how the circuit diagraming works, you will not be able to complete the second part of this lab.
 
-## Slight enhancement to first circuit
+## Mechanical AND gate
 
-This part is just a slight enhancement of the circuit in Section 3. We'll modify our circuit to act as a kind of **“mechanical AND gate,”** where the LED will only turn on if two switches are both in the **closed** position. This is simply wiring two switches in series, not using any **AND** gates (or indeed any logic gates at all).
+This part is a slight enhancement of the circuit in Section 3. We'll modify our circuit to act as a kind of **“mechanical AND gate,”** where the LED will turn on only if two switches are both in the **closed** position. This is simply wiring two switches in series, not using any **AND** gates (or any logic gates at all).
 
 The one complication in this part of the lab is that we want to wire the two switches in such a way that the LED will only turn on when both switches are in the closed position. This will require some small modification to the switch wiring: one switch will need to select between ground and the output of the previous switch.
 
-There is one important step you must take while constructing Digital circuits for this class. Every time you place a switch, you must right-click (control + click for Mac) the switch. This will open an options menu for the switch, where among other things, you can label the component. You will notice that all components are already labeled for you. For **both** switches that are placed in this circuit for you, go to the "advanced" options menu, and make sure you check the box labeled "Switch behaves like an input". This will allow the autograder to work. If you don't do this step, the autograder will not work! **Remember, you must enable this option for every switch in your circuit, and this step must be done in all future Digital labs as well!**
+Please do *not* delete or rename the switches (moving them is fine, though unnecessary). The autograder uses the component names `switch1` and `switch2` during testing. In future Digital labs, you will add names to components yourself, but this is already done for you in this lab.
+
+<details>
+  <summary>Click here for instructions if you've already deleted or renamed the switches
+  </summary>
+If you have already deleted them, then either revert changes in your git repo or add the switches back. If you add them back, you need to right-click the component to bring up options (on macOS, either use a mouse or go to your settings, search for "Trackpad", and make sure "Secondary click" is set to "Click or Tap with Two Fingers"), select "Advanced", check "Switch behaves like an input", and rename them to the proper names.
 
 ![image](https://user-images.githubusercontent.com/55986131/149873493-8da11454-750e-466d-b3ae-31c0fd0025d6.png)
+</details>
 
-Construct your design in Digital using the `Lab00b.dig` file as a start. You should only need to add wires and delete wires, not add any additional components. Verify that your design works in Digital by using the `play` button to simulate the circuit. You should only see the LED light up when both switches are in the closed position.
+Construct your design in Digital using the `Lab00b.dig` file. You should only need to add wires and delete wires, not add any additional components. Verify that your design works in Digital by using the triangular `play` button to simulate the circuit. The LED should light up only when both switches are in the closed position.
 
-**Note:** It is possible to create a mechanical **AND** gate design that seems to work according to the first paragraph of this section when the simulation is run yet fails the autograder tests. This may occur if you move the switches, which is not required, or otherwise wire the circuit improperly. These designs don't pass the tests because they are considered incorrect.
+**Note:** It is highly unlikely but possible to create a mechanical **AND** gate design that seems to work according to the first paragraph of this section yet fails the autograder tests. This would occur if you wire the circuit in a specific improper way (again, most people will not encounter this). These designs don't pass the tests because they are considered incorrect.
 
-**What to submit?** After modifying the file `Lab00b.dig` in order to implement the functionality shown above, you should commit and push your changes to your Lab 0 GitHub repo.
+**What to submit?** After modifying `Lab00b.dig`, you should commit and push your changes to your Lab 0 GitHub repo.
 
 ## Submit your assignment
 
