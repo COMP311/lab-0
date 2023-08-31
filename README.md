@@ -14,7 +14,6 @@ The goal of this lab is to get comfortable with the basic conventions of circuit
   - [Digital: Circuit design and simulation software](#digital-circuit-design-and-simulation-software)
     - [Windows installation](#windows-installation)
     - [macOS/Linux installation](#macoslinux-installation)
-      - [Optional](#optional)
     - [Instructions for Digital](#instructions-for-digital)
   - [Circuit design](#circuit-design)
   - [First circuit](#first-circuit)
@@ -52,15 +51,21 @@ Please skip over the macOS/Linux installation section to [Instructions for Digit
 
 Follow the instructions on the [Digital](https://github.com/hneemann/Digital) GitHub page for downloading and running the software program (no installation required). In short, you simply download the .zip file and unzip it.
 
-To start Digital, open a terminal and run `Digital.jar` with `java -jar PATH/TO/Digital.jar`.
+To start Digital, open a terminal and run `Digital.jar` with `java -jar PATH/TO/Digital.jar`, of course using your own path to `Digital.jar`.
 
-#### Optional
+To easily start Digital without having to type the path to `Digital.jar`, alias the command. Run `echo "alias digital=\"java -jar $ABSOLUTE_PATH_TO_DIGITAL_JAR\"" >> $HOME/.zshrc`, replacing `$ABSOLUTE_PATH_TO_DIGITAL_JAR` with your **absolute** path to `Digital.jar`.
 
-If you encounter an uncommon bug where the Open menu does not display `.dig` files, then open `.dig` files by passing them as a command-line argument. For example, if you want to open the file `~/circuit.dig`, then run `java -jar Digital.jar ~/circuit.dig`. You can drag a file from Finder to the terminal to automatically paste its absolute path.
+macOS's default shell is zsh, so this alias command goes in the `~/.zshrc` file. If your default shell is bash (check with `echo $SHELL`), then replace `.zshrc` with `.bashrc`.
 
-To easily start Digital without having to type the path to `Digital.jar`, you can alias the command. Run `echo "alias digital=\"java -jar $ABSOLUTE_PATH_TO_DIGITAL_JAR\"" >> $HOME/.zshrc`, replacing `$ABSOLUTE_PATH_TO_DIGITAL_JAR` with your **absolute** path to `Digital.jar`. If your default shell is bash (check with `echo $SHELL`), then you'll want to use `.bashrc` instead. **Restart your terminal**.
+**Restart your terminal after running this command**.
 
 You'll now be able to type `digital` or `digital <file>` from any directory to run Digital.
+
+<details>
+  <summary>Click here for fix for uncommon bug where Open menu does not display .dig files</summary>
+
+If you happen to encounter an uncommon bug where the Open menu does not display `.dig` files, then open `.dig` files by passing them as a command-line argument. For example, if you want to open the file `~/circuit.dig`, then run `java -jar Digital.jar ~/circuit.dig`. You can drag a file from Finder to the terminal to automatically paste its absolute path.
+</details>
 
 ### Instructions for Digital
 
@@ -90,8 +95,7 @@ The one complication in this part of the lab is that we want to wire the two swi
 Please do *not* delete or rename the switches (moving them is fine, though unnecessary). The autograder uses the component names `switch1` and `switch2` during testing. In future Digital labs, you will add names to components yourself, but this is already done for you in this lab.
 
 <details>
-  <summary>Click here for instructions if you've already deleted or renamed the switches
-  </summary>
+  <summary>Click here for instructions if you've already deleted or renamed the switches</summary>
 If you have already deleted them, then either revert changes in your git repo or add the switches back. If you add them back, you need to right-click the component to bring up options (on macOS, either use a mouse or go to your settings, search for "Trackpad", and make sure "Secondary click" is set to "Click or Tap with Two Fingers"), select "Advanced", check "Switch behaves like an input", and rename them to the proper names.
 
 ![image](https://user-images.githubusercontent.com/55986131/149873493-8da11454-750e-466d-b3ae-31c0fd0025d6.png)
