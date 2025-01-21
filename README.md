@@ -1,111 +1,143 @@
-# COMP 311: Lab 0
+<!-- omit in toc -->
+# Lab 0
 
-The goal of this lab is to get comfortable with the basic conventions of circuit diagrams, such as power, ground, wires, mechanical switch, and light emitting diode (LED). At the end, you should be comfortable with
-
-- Working with GitHub Desktop,
-- designing and testing simple circuits using the Digital software application, and
-- submitting your solution to Gradescope.
+This lab introduces [Digital](https://github.com/hneemann/Digital), an educational software tool for designing and simulating digital circuits. You will also learn about some basic conventions of circuits, such as power, ground, wires, mechanical switch, and light-emitting diode (LED).
 
 <details open>
   <summary>Overview</summary>
 
-- [COMP 311: Lab 0](#comp-311-lab-0)
-  - [GitHub Desktop](#github-desktop)
-  - [Digital: Circuit design and simulation software](#digital-circuit-design-and-simulation-software)
-    - [Windows installation](#windows-installation)
+- [Setup](#setup)
+  - [SSH setup](#ssh-setup)
+  - [Clone repo](#clone-repo)
+  - [Install Digital](#install-digital)
+    - [Windows](#windows)
     - [macOS/Linux installation](#macoslinux-installation)
-    - [Instructions for Digital](#instructions-for-digital)
-  - [Circuit design](#circuit-design)
-  - [First circuit](#first-circuit)
-  - [Mechanical AND gate](#mechanical-and-gate)
-  - [Submit your assignment](#submit-your-assignment)
+      - [Optional steps for convenience](#optional-steps-for-convenience)
+- [Digital tutorial](#digital-tutorial)
+  - [Tips](#tips)
+    - [Documentation](#documentation)
+    - [Component tree view](#component-tree-view)
+    - [Note for macOS users](#note-for-macos-users)
+- [Example circuit](#example-circuit)
+- [Mechanical AND gate](#mechanical-and-gate)
+- [Submit your assignment](#submit-your-assignment)
 </details>
 
-## GitHub Desktop
+## Setup
 
-Throughout this semester, you will be responsible for managing (cloning & committing) to your GitHub repositories so they can be linked to Gradescope for assignment submission and grading. Instead of using git commands in a terminal, we strongly recommend that you use [GitHub Desktop](https://desktop.github.com/) to simplify the process.
+### SSH setup
 
-The links below provide step-by-step instructions along with visual aids about how to use GitHub Desktop:
+As we did in COMP 211, we will clone repositories from GitHub using SSH. If you have already generated an SSH key on your computer and connected it to your GitHub account, skip to [Clone repo](#clone-repo).
 
-- [Install](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) GitHub Desktop.
-- [Authenticate](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github) to GitHub.
-- [Clone](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop) a repository from GitHub to GitHub Desktop.
-- [Commit](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project) your changes to the repository.
-- [Push](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github) your changes to the repository.
+To generate a new SSH key, follow [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key). Do only the steps in the section named "Generating a new SSH key".
 
-Before proceeding, please clone this repository using the clone instructions provided above.
+On step 2, accept the default file location by pressing enter. On step 3, when prompted for a passphrase, you may use no passphrase by simply pressing enter twice.
 
-## Digital: Circuit design and simulation software
+Then, follow [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account) to add your SSH public key to your GitHub account.
 
-A Java Runtime Environment (at least JRE 8) is required to run Digital. You should already have one if you're using the same computer you used in COMP 210 or COMP 301. If not, please search online for installation instructions for your specific OS and install. **Make sure it can be run from the command line, and check the version with `java --version`**.
+### Clone repo
 
-### Windows installation
+Run `git clone <link>`, where `<link>` is the SSH link to your Lab 0 repository that can be found in GitHub.
 
-Follow the instructions on the [Digital](https://github.com/hneemann/Digital) GitHub page for downloading and running the software program (no installation required). In short, you simply download the .zip file, unzip it, and run the software.
+![SSH link](https://i.imgur.com/uewDAq2.png)
 
-To start Digital, simply double click the downloaded `Digital.exe` executable file.
+### Install Digital
 
-Please skip over the macOS/Linux installation section to [Instructions for Digital](#instructions-for-digital).
+Digital allows us to design, simulate, and test circuits.
 
-### macOS/Linux installation
+A Java Runtime Environment (at least JRE 8) is required to run Digital. You should already have this if you're using the same computer you used in COMP 210 or COMP 301. If not, search online for installation instructions for your specific OS and install. You can verify that it works and check its version with `java --version`.
 
-Follow the instructions on the [Digital](https://github.com/hneemann/Digital) GitHub page for downloading and running the software program (no installation required). In short, you simply download the .zip file and unzip it.
+1. Download a `.zip` file with Digital software files by clicking [here](https://github.com/hneemann/Digital/releases/latest/download/Digital.zip).
+2. Unzip it.
+3. Move the folder (not the `.zip` file) to an easily accessible location on your computer. We will need to access this frequently.
 
-To start Digital, open a terminal and run `Digital.jar` with `java -jar PATH/TO/Digital.jar`, of course using your own path to `Digital.jar`.
+#### Windows
 
-To easily start Digital without having to type the path to `Digital.jar`, alias the command. Run `echo "alias digital=\"java -jar $ABSOLUTE_PATH_TO_DIGITAL_JAR\"" >> $HOME/.zshrc`, replacing `$ABSOLUTE_PATH_TO_DIGITAL_JAR` with your **absolute** path to `Digital.jar`.
+To start Digital, double-click `Digital.exe`.
 
-macOS's default shell is zsh, so this alias command goes in the `~/.zshrc` file. If your default shell is bash (check with `echo $SHELL`), then replace `.zshrc` with `.bashrc`.
+#### macOS/Linux installation
 
-**Restart your terminal after running this command**.
+To start Digital, run `java -jar PATH/TO/Digital.jar`, where `PATH/TO/Digital.jar` is the path to your `Digital.jar` file.
 
-You'll now be able to type `digital` or `digital <file>` from any directory to run Digital.
+##### Optional steps for convenience
+
+To start Digital without having to type the path to `Digital.jar`, alias the command. Run `echo "alias digital=\"java -jar ABSOLUTE_PATH_TO_DIGITAL_JAR\"" >> $HOME/.zshrc`, replacing `ABSOLUTE_PATH_TO_DIGITAL_JAR` with your **absolute** path to `Digital.jar`.
+
+macOS's default shell is zsh, so this alias command goes in `~/.zshrc`. If your default shell is not zsh (check with `echo $SHELL`), replace `.zshrc` with your shell's configuration file (e.g., `.bashrc` for bash).
+
+Restart your terminal after running this command.
+
+You can now start Digital from any directory by running `digital`. You can also open a specific circuit file by running `digital PATH/TO/circuit.dig`.
 
 <details>
-  <summary>Click here for fix for uncommon bug where Open menu does not display .dig files</summary>
+  <summary>Potential bug where Open menu does not display .dig files</summary>
 
-If you happen to encounter an uncommon bug where the Open menu does not display `.dig` files, then open `.dig` files by passing them as a command-line argument. For example, if you want to open the file `~/circuit.dig`, then run `java -jar Digital.jar ~/circuit.dig`. You can drag a file from Finder to the terminal to automatically paste its absolute path.
+If you encounter an uncommon bug where the Open menu does not display `.dig` files, open a `.dig` file by passing it as a command-line argument. For example, if you want to open the file `~/circuit.dig`, run `java -jar Digital.jar ~/circuit.dig` (or `digital ~/circuit.dig` if you did the optional steps above). You can drag a file from Finder to the terminal to automatically paste its absolute path.
+
 </details>
 
-### Instructions for Digital
+## Digital tutorial
 
-Within Digital, you can access a useful help document by clicking **Help > Documentation**. We recommend reading
+The first time you start Digital, you should be greeted with a built-in tutorial. If it does not show up, start it by clicking View > Start Tutorial.
 
-- `Section 1`: How to navigate through the program and create simple circuits.
-- `Secion 3.2`: LED with two connections.
-- `Sections 6.1 and 6.2`: Ground and voltage supply or **power**.
-- `Section 13.1`: Mechanical on/off switch.
+Complete the tutorial, which shows you how to build and simulate a simple circuit with an XOR gate, 2 inputs, and 1 output.
 
-## Circuit design
+### Tips
 
-Using Digital, we'll wire up a very simple circuit that uses power, ground, one or more switches, and one LED. In general, when the switch is closed, the LED will turn on (color will be red) and when the switch is open, the LED will be turned off (color will be black). Adding an LED is a great way to visually test the output of your circuit.
+#### Documentation
 
-## First circuit
+As shown in the tutorial, you can right-click any component to open a menu and configure settings for that component. The menu also contains a "Help" button that opens documentation for that component. Whenever you don't know what a component does or need to review, please refer to the documentation.
 
-Start Digital and open the file `Lab00a.dig`. You do not need to edit this circuit in any way; it serves simply as an example of what a completed circuit in Digital looks like. Use this file to familiarize yourself with the Digital software. For example, pressing the triangular `play` button in the top right corner of the Digital software will allow you to simulate the circuit. Try flipping the switch and seeing how it affects the output of the LED. Carefully inspect how the LED is wired, and notice which components represent power (logic 1) and which represent ground (logic 0). When you press the `play` button, certain wires will light up - these wires are the ones that are connected to power. Understanding and analyzing how this circuit works will be crucial to being able to complete the second part of this lab.
+You may also download a PDF containing all documentation [here](https://github.com/hneemann/Digital/releases).
 
-**What to submit?** There is nothing to "submit" for this part of the lab. Just make sure the `Lab00a.dig` file is still included in your repository when you submit on Gradescope. However, please note, if you do not spend enough time on this section of the lab understanding how the circuit diagraming works, you will not be able to complete the second part of this lab.
+#### Component tree view
+
+To make it easier to access components, you can enable Component Tree View. To do so, click View > Component Tree View.
+
+To make this the default behavior, click Edit > Settings > Component tree view is visible at startup.
+
+You may also change the language here, if you want.
+
+#### Note for macOS users
+
+macOS users, if control-click does not work for you, try right clicking with two-finger tap. If this is not already enabled, then do the following:
+
+1. Press command+space to open Spotlight Search.
+2. Type "trackpad" and press enter.
+3. Set secondary click to "Click or Tap with Two Fingers".
+
+## Example circuit
+
+In Digital, open [example.dig](example.dig). This is a simple example circuit containing a light-emitting diode (LED) and a mechanical switch.
+
+First, simulate the circuit by pressing the triangular Play button. Then, click the switch to toggle it and note the effect on the LED. The behavior should be very simple to understand.
+
+To read about how an LED works, right-click the LED component and click "Help". You may also want to read about the other components Supply voltage (logic 1 or) and Ground (logic 0).
+
+Nothing needs to be submitted for this part, but make sure you understand it to be able to complete the next part.
 
 ## Mechanical AND gate
 
-This part is a slight enhancement of the circuit in Section 3. We'll modify our circuit to act as a kind of **“mechanical AND gate,”** where the LED will turn on only if two switches are both in the **closed** position. This is simply wiring two switches in series, not using any **AND** gates (or any logic gates at all).
+Open `and.dig` in Digital.
 
-The one complication in this part of the lab is that we want to wire the two switches in such a way that the LED will only turn on when both switches are in the closed position. This will require some small modification to the switch wiring: one switch will need to select between ground and the output of the previous switch.
+In this part, you'll slightly enhance the circuit in `example.dig`. Specifically, create a circuit that acts like a "mechanical AND gate", where the LED turns on only if both switches are in the closed position. You need only add wires (i.e., wire the switches in series), and don't use any logic gates or any additional components.
 
-Please do *not* delete or rename the switches (moving them is fine, though unnecessary). The autograder uses the component names `switch1` and `switch2` during testing. In future Digital labs, you will add names to components yourself, but this is already done for you in this lab.
+Do not delete or rename the switches (moving them is fine, though unnecessary). The autograder requires the switches to be named `switch1` and `switch2`.
 
 <details>
   <summary>Click here for instructions if you've already deleted or renamed the switches</summary>
-If you have already deleted them, then either revert changes in your git repo or add the switches back. If you add them back, you need to right-click the component to bring up options (on macOS, either use a mouse or go to your settings, search for "Trackpad", and make sure "Secondary click" is set to "Click or Tap with Two Fingers"), select "Advanced", check "Switch behaves like an input", and rename them to the proper names.
+
+If you have already deleted or renamed the switches, then either revert changes in your repo (`git restore .`) or add the switches back.
+
+If you decide to add the switches back, the Switch component can be found at Components > Switches > Switch. Additionally, right-click a switch, select "Advanced", check "Switch behaves like an input", and name it `switch1`. Do the same for the other switch, but name it `switch2`.
 
 ![image](https://user-images.githubusercontent.com/55986131/149873493-8da11454-750e-466d-b3ae-31c0fd0025d6.png)
+
 </details>
 
-Construct your design in Digital using the `Lab00b.dig` file. You should only need to add wires and delete wires, not add any additional components. Verify that your design works in Digital by using the triangular `play` button to simulate the circuit. The LED should light up only when both switches are in the closed position.
+Verify that your design works according to the specification above by simulating the circuit and testing it.
 
-**Note:** It is highly unlikely but possible to create a mechanical **AND** gate design that seems to work according to the first paragraph of this section yet fails the autograder tests. This would occur if you wire the circuit in a specific improper way (again, most people will not encounter this). These designs don't pass the tests because they are considered incorrect.
-
-**What to submit?** After modifying `Lab00b.dig`, you should commit and push your changes to your Lab 0 GitHub repo.
+**Note:** It is unlikely but possible to create a design that seems to work according to the specification given but fails the autograder tests. This would occur if you wire the circuit in a specific improper way. These designs don't pass the tests because they are considered incorrect.
 
 ## Submit your assignment
 

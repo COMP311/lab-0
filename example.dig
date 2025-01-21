@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <circuit>
-  <version>1</version>
+  <version>2</version>
   <attributes/>
   <visualElements>
     <visualElement>
@@ -8,7 +8,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>ground</string>
+          <string>Ground</string>
         </entry>
       </elementAttributes>
       <pos x="540" y="420"/>
@@ -18,17 +18,17 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>power</string>
+          <string>Power</string>
         </entry>
       </elementAttributes>
-      <pos x="500" y="140"/>
+      <pos x="540" y="120"/>
     </visualElement>
     <visualElement>
       <elementName>PolarityAwareLED</elementName>
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>led1</string>
+          <string>LED</string>
         </entry>
       </elementAttributes>
       <pos x="540" y="280"/>
@@ -37,18 +37,18 @@
       <elementName>Switch</elementName>
       <elementAttributes>
         <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+        <entry>
           <string>Label</string>
-          <string>switch1</string>
+          <string>switch</string>
         </entry>
       </elementAttributes>
-      <pos x="500" y="220"/>
+      <pos x="540" y="180"/>
     </visualElement>
   </visualElements>
   <wires>
-    <wire>
-      <p1 x="500" y="140"/>
-      <p2 x="500" y="220"/>
-    </wire>
     <wire>
       <p1 x="540" y="360"/>
       <p2 x="540" y="420"/>
@@ -56,6 +56,10 @@
     <wire>
       <p1 x="540" y="220"/>
       <p2 x="540" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="120"/>
+      <p2 x="540" y="180"/>
     </wire>
   </wires>
   <measurementOrdering/>
