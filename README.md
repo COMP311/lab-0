@@ -35,7 +35,7 @@ As we did in COMP 211, we will clone GitHub repositories via SSH. If you have al
 
 To generate a new SSH key, follow [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key). Do only the steps in the section named "Generating a new SSH key".
 
-On step 2, accept the default file location by pressing enter. On step 3, when prompted for a passphrase, you may use no passphrase by simply pressing enter twice.
+On step 2, accept the default file location by pressing Enter. On step 3, when prompted for a passphrase, you may use no passphrase by simply pressing Enter twice.
 
 Then, follow [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account) to add your SSH public key to your GitHub account.
 
@@ -120,8 +120,8 @@ You may also change the language here, if you want.
 
 macOS users, if control-click does not work for you, try right clicking with two-finger tap. If this is not already enabled, then do the following:
 
-1. Press command+space to open Spotlight Search.
-2. Type "trackpad" and press enter.
+1. Press Cmd+Space to open Spotlight Search.
+2. Type "trackpad" and press Enter.
 3. Set secondary click to "Click or Tap with Two Fingers".
 
 ## Example circuit
