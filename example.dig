@@ -44,8 +44,26 @@
           <string>Label</string>
           <string>switch</string>
         </entry>
+        <entry>
+          <string>switchActsAsInput</string>
+          <boolean>true</boolean>
+        </entry>
       </elementAttributes>
       <pos x="540" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>switch LED
+0 Z
+1 1</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="380" y="200"/>
     </visualElement>
   </visualElements>
   <wires>

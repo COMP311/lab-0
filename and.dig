@@ -61,6 +61,22 @@
       </elementAttributes>
       <pos x="320" y="200"/>
     </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>switch1 switch2 LED
+0 0 Z
+0 1 Z
+1 0 Z
+1 1 1</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="40"/>
+    </visualElement>
   </visualElements>
   <wires/>
   <measurementOrdering/>
