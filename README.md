@@ -22,6 +22,8 @@ This lab introduces [Digital](https://github.com/hneemann/Digital), an education
 - [Mechanical AND gate](#mechanical-and-gate)
   - [Testing](#testing)
 - [Tunnels](#tunnels)
+- [Splitter/merger](#splittermerger)
+  - [Testing](#testing-1)
 - [Submit your assignment](#submit-your-assignment)
 </details>
 
@@ -165,9 +167,11 @@ You should then see a menu like this:
   <img src="https://i.imgur.com/UMhr7Kd.png">
 </p>
 
-It looks like a truth table! Ignore the value "Z" for now - you will learn what this means in a later lecture.
+If you don't see this menu and receive an error, it's likely because you renamed or deleted the given components. To resolve this, see the instructions [above](#mechanical-and-gate).
 
-In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. For each row, Digital provides the given inputs to the circuit. Then, it checks whether the output is the expected value or not. If you click on L2 or any other row, you'll see how this works (and this is also useful for debugging).
+The menu looks like a truth table! Ignore the value "Z" for now - you will learn what this means in a later lecture.
+
+In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. Each row represents a single test case. For each test case, we hardcode the inputs and expected output. Digital then simulates the circuit with the given inputs and checks whether the output is correct or not. If you click on L2 or any other row, you'll see how this works (and this is also useful for debugging).
 
 If a test case fails, the menu would look like this:
 
@@ -210,6 +214,54 @@ The two circuits are logically equivalent, but the latter is clearly easier to w
 The tunnel component can be found at Components > Wires > Tunnel. All tunnels with the same name (which is set by right-clicking the tunnel) are connected and have the same value.
 
 There is nothing to submit for this part, but please keep tunnels in mind for future labs.
+
+## Splitter/merger
+
+So far, we have seen only 1-bit values on inputs, outputs, and wires. However, multi-bit values are common. For example, a 32-bit number in your computer can be represented as 32 wires that each carry 1 bit. However, we do not want to draw 32 wires every time, and it is preferable draw a single wire that denotes 32 bits.
+
+To do so in Digital, we first create an input component and set it to have multiple data bits (e.g., 2-bit). We also set its number format to binary.
+
+<p align="center">
+  <img src="https://i.imgur.com/F2iHpQ4.png">
+</p>
+
+<p align="center">
+  <img src="https://i.imgur.com/Q7LazJj.png">
+</p>
+
+Then we use the splitter/merger component. For example,
+
+<p align="center">
+  <img src="https://i.imgur.com/twDwoIP.png">
+</p>
+
+While simulating, we set the input's value to `0b10`. The two bits are in the same wire and are sent into the splitter/merger, which splits the 2-bit wire into bit 1 and bit 0. Note that bit 1 is on and bit 0 is off, as expected.
+
+In general, the splitter/merger component is capable of splitting a multi-bit value into smaller parts or merging multiple values into a single value. To be concise, we'll use the term "splitter" from now on, but you should remember that it can both split and merge.
+
+Here's another example, in which we split a 16-bit input into two separate bytes.
+
+<p align="center">
+  <img src="https://i.imgur.com/UurPLJk.png">
+</p>
+
+The splitter is configured as follows:
+
+<p align="center">
+  <img src="https://i.imgur.com/yTgC25U.png">
+</p>
+
+The input is 16-bit, so we set "Input Splitting" to 16, which creates the blue input dot labeled 0-15 on the splitter. We want two groups of 8 bits, so we set "Output Splitting" to 8,8. The comma separates the two groups. This creates two red output dots labeled 8-15 and 0-7 on the splitter. Lastly, both outputs are set to be 8-bit.
+
+If the bit widths of the input(s) or output(s) do not match the bit widths of their corresponding connections with the splitter, you will receive an error when you attempt to simulate the circuit.
+
+To test your understanding of this section, open [splitter.dig](splitter.dig). This file contains a 10-bit input displayed in binary format and a 1-bit output. Do not change the bit widths of the input or output. You may change the number format, though this is unnecessary.
+
+In this file, create a circuit that outputs 1 if the 10-bit input is negative and odd when interpreted as a 2's complement number. Otherwise, the output should be 0.
+
+### Testing
+
+To test your circuit, the steps are the same as the [earlier steps](#testing) for the mechanical AND gate.
 
 ## Submit your assignment
 
