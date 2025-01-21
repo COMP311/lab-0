@@ -21,6 +21,7 @@ This lab introduces [Digital](https://github.com/hneemann/Digital), an education
 - [Example circuit](#example-circuit)
 - [Mechanical AND gate](#mechanical-and-gate)
   - [Testing](#testing)
+- [Tunnels](#tunnels)
 - [Submit your assignment](#submit-your-assignment)
 </details>
 
@@ -28,7 +29,7 @@ This lab introduces [Digital](https://github.com/hneemann/Digital), an education
 
 ### SSH setup
 
-As we did in COMP 211, we will clone repositories from GitHub via SSH. If you have already generated an SSH key on your computer (not inside the COMP 211 container) and connected it to your GitHub account, skip to [Clone repo](#clone-repo).
+As we did in COMP 211, we will clone GitHub repositories via SSH. If you have already generated an SSH key on your computer (not inside the COMP 211 container) and connected it to your GitHub account, skip to [Clone repo](#clone-repo).
 
 To generate a new SSH key, follow [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key). Do only the steps in the section named "Generating a new SSH key".
 
@@ -137,14 +138,14 @@ In Digital, open [and.dig](and.dig).
 
 In this file, you'll slightly enhance the previous circuit. Specifically, create a circuit that acts like a "mechanical AND gate", where the LED turns on only if both switches are in the closed position. You need only add wires (i.e., wire the two switches in series). Don't use any logic gates or any additional components.
 
-Don't delete or rename the switches (moving them is fine, though unnecessary). The test case component requires the switches to be named `switch1` and `switch2`.
+Don't delete or rename the switches (moving them is fine, though unnecessary). The test cases require the switches to have the specific given names.
 
 <details>
   <summary>Click here for instructions if you've already deleted or renamed the switches</summary>
 
 If you have already deleted or renamed the switches, then either revert changes in your repo (`git restore .`) or add the switches back.
 
-If you decide to add the switches back, the Switch component can be found at Components > Switches > Switch. Additionally, right-click a switch, select "Advanced", check "Switch behaves like an input", and name it `switch1`. Do the same for the other switch, but name it `switch2`.
+If you decide to add the switches back, the Switch component can be found at Components > Switches > Switch. Additionally, right-click a switch, select "Advanced", check "Switch behaves like an input", and name it `switch_0`. Do the same for the other switch, but name it `switch_1`.
 
 </details>
 
@@ -161,22 +162,54 @@ To automatically test your circuit, click this button at the top to run the test
 You should then see a menu like this:
 
 <p align="center">
-  <img src="https://i.imgur.com/M8dAnLF.png">
+  <img src="https://i.imgur.com/UMhr7Kd.png">
 </p>
 
-It looks like a truth table! Ignore the value "Z" for now - you will learn about it in a later lecture.
+It looks like a truth table! Ignore the value "Z" for now - you will learn what this means in a later lecture.
 
-In this table, the `switch1` and `switch2` columns are inputs, and `LED` is the output that is checked. For each row, Digital provides the given inputs to the circuit. Then, it checks whether the output is the expected value or not. If you click on L2 or any other row, you'll see how this works (and this is also useful for debugging).
+In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. For each row, Digital provides the given inputs to the circuit. Then, it checks whether the output is the expected value or not. If you click on L2 or any other row, you'll see how this works (and this is also useful for debugging).
 
 If a test case fails, the menu would look like this:
 
 <p align="center">
-  <img src="https://i.imgur.com/YRwQ9uB.png">
+  <img src="https://i.imgur.com/apoaRFY.png">
 </p>
 
-The "E: Z / F: 1" in L4 means that for the inputs in L4, the expected output is Z, but the actual output is 1.
+In L4, the "E: Z / F: 1" means that for the inputs in L4, the expected output is Z, but the actual output is 1.
 
 **Note:** It is unlikely but possible to create a design that seems to work according to the specification given but fails the tests. This would occur if you wire the circuit in a specific improper way. These designs don't pass the tests because they are considered incorrect.
+
+## Tunnels
+
+The tunnel component will save you a lot of time debugging by making your circuits look cleaner.
+
+A tunnel allows you to draw an "invisible wire" between two points. For example, this circuit
+
+<p align="center">
+  <img src="https://i.imgur.com/d2pgQBD.png">
+</p>
+
+is equivalent to
+
+<p align="center">
+  <img src="https://i.imgur.com/MZy912B.png">
+</p>
+
+Perhaps this doesn't immediately seem useful. However, consider the following two circuits, one without tunnels and one with tunnels:
+
+<p align="center">
+  <img src="https://i.imgur.com/yhsAHK1.png">
+</p>
+
+<p align="center">
+  <img src="https://i.imgur.com/5oPGP0g.png">
+</p>
+
+The two circuits are logically equivalent, but the latter is clearly easier to work with. We strongly recommend that you use tunnels for labs involving Digital.
+
+The tunnel component can be found at Components > Wires > Tunnel. All tunnels with the same name (which is set by right-clicking the tunnel) are connected and have the same value.
+
+There is nothing to submit for this part, but please keep tunnels in mind for future labs.
 
 ## Submit your assignment
 

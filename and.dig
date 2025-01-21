@@ -38,7 +38,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>switch1</string>
+          <string>switch_0</string>
         </entry>
         <entry>
           <string>switchActsAsInput</string>
@@ -52,7 +52,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>switch2</string>
+          <string>switch_1</string>
         </entry>
         <entry>
           <string>switchActsAsInput</string>
@@ -67,7 +67,7 @@
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>switch1 switch2 LED
+            <dataString>switch_0 switch_1 LED
 0 0 Z
 0 1 Z
 1 0 Z
