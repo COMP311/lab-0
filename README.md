@@ -23,7 +23,8 @@ This lab introduces [Digital](https://github.com/hneemann/Digital), an education
   - [Testing](#testing)
 - [Tunnels](#tunnels)
 - [Splitter/merger](#splittermerger)
-  - [Testing](#testing-1)
+  - [Exercise](#exercise)
+    - [Testing](#testing-1)
 - [Submit your assignment](#submit-your-assignment)
 </details>
 
@@ -96,7 +97,7 @@ If you encounter an uncommon bug where the Open menu does not display `.dig` fil
 
 ## Digital tutorial
 
-The first time you start Digital, you should be greeted with a built-in tutorial. If it does not show up, start it by clicking View > Start Tutorial.
+The first time you start Digital, you will be greeted with a built-in tutorial. If you do not see it, start it by clicking View > Start Tutorial.
 
 Complete the tutorial, which shows you how to build and simulate a simple circuit with an XOR gate, 2 inputs, and 1 output.
 
@@ -181,7 +182,7 @@ If a test case fails, the menu would look like this:
 
 In L4, the "E: Z / F: 1" means that for the inputs in L4, the expected output is Z, but the actual output is 1.
 
-**Note:** It is unlikely but possible to create a design that seems to work according to the specification given but fails the tests. This would occur if you wire the circuit in a specific improper way. These designs don't pass the tests because they are considered incorrect.
+**Note**: It is unlikely but possible to create a design that seems to work according to the specification given but fails the tests. This would occur if you wire the circuit in a specific improper way. These designs don't pass the tests because they are considered incorrect.
 
 ## Tunnels
 
@@ -255,11 +256,13 @@ The input is 16-bit, so we set "Input Splitting" to 16, which creates the blue i
 
 If the bit widths of the input(s) or output(s) do not match the bit widths of their corresponding connections with the splitter, you will receive an error when you attempt to simulate the circuit.
 
+### Exercise
+
 To test your understanding of this section, open [splitter.dig](splitter.dig). This file contains a 10-bit input displayed in binary format and a 1-bit output. Do not change the bit widths of the input or output. You may change the number format, though this is unnecessary.
 
 In this file, create a circuit that outputs 1 if the 10-bit input is negative and odd when interpreted as a 2's complement number. Otherwise, the output should be 0.
 
-### Testing
+#### Testing
 
 To test your circuit, the steps are the same as the [earlier steps](#testing) for the mechanical AND gate.
 
