@@ -141,16 +141,4 @@ Verify that your design works according to the specification above by simulating
 
 ## Submit your assignment
 
-Assignments will be submitted through [Gradescope](https://www.gradescope.com).
-
-You should already be enrolled in the COMP 311 course on Gradescope. If you are not, please check the course website and syllabus for self-enrollment instructions. If you're unable to self-enroll, please contact your cohort leader(s) and we'll manually add you.
-
-To submit your assignment, please follow the basic steps provided below. If you're unable to perform any of the steps, please reach out to your **cohort** and **cohort leader** as soon as possible. That is, give yourself time to resolve any technical issues using GitHub, GitHub Desktop, and Gradescope well before the assignment due date.
-
-1. Submit modifications using the **commit** GitHub Desktop instructions.
-2. Update remote (origin) repository using the **push** GitHub Desktop instructions.
-3. Go to the COMP 311 course in Gradescope and click on the assignment called **Lab 0**.
-4. Click on the option to **Submit Assignment** and choose GitHub as the submission method. You may be prompted to sign in to your GitHub account to grant access to Gradescope. When this occurs, grant access to the Comp311 organization.
-5. You should see a list of your public repositories. Select the one named **lab-00-yourname** and submit it.
-6. Your assignment should be autograded within a few seconds and you will receive feedback.
-7. If you receive all the points, then you have completed this lab assignment! Otherwise, you are free to keep pushing commits to your GitHub repository and submit for regrading up until the deadline of the lab.
+See the [instructions for assignment submission](https://github.com/COMP311/submit-assignment).
