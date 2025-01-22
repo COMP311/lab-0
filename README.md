@@ -96,7 +96,7 @@ Complete the tutorial, which shows you how to build and simulate a simple circui
 
 ### Documentation
 
-As shown in the tutorial, you can right-click any component to open a menu and configure settings for that component. The menu also contains a "Help" button that opens documentation for that component. Whenever you don't know what a component does or need to review, please refer to the documentation. You can also hover your mouse over a component to see a brief summary.
+As shown in the tutorial, you can right-click a component to open a menu and configure settings for that component. The menu also contains a "Help" button that opens documentation for that component. Whenever you don't know what a component does or need to review, please refer to the documentation. You can also hover your mouse over a component to see a brief summary.
 
 You may also download a PDF containing all documentation [here](https://github.com/hneemann/Digital/releases).
 
@@ -167,7 +167,7 @@ You should then see a menu like this:
   <img src="https://i.imgur.com/UMhr7Kd.png">
 </p>
 
-If you don't see this menu and receive an error, then your circuit is invalid (similar to a compilation error when coding). Please read the error message and try to solve the issue.
+If you don't see this menu and receive an error, your circuit is invalid (similar to a compilation error when coding). Please read the error message and try to solve the issue.
 
 The menu is essentially a truth table!
 
@@ -185,18 +185,16 @@ In L4, the "E: Z / F: 1" means that when the circuit is given the inputs in L4, 
 
 ## Tunnels
 
-The tunnel component will save you a lot of time debugging by making your circuits look cleaner.
+The Tunnel component will save you a lot of time debugging by simplifying your circuit wiring.
 
-A tunnel allows you to draw an "invisible wire" between two points. For example, this circuit
+A tunnel is like an invisible wire between two points. For example, these two circuits are logically equivalent:
 
 <p align="center">
-  <img src="https://i.imgur.com/d2pgQBD.png">
+  <img src="https://i.imgur.com/QMht3mK.png">
 </p>
 
-is equivalent to
-
 <p align="center">
-  <img src="https://i.imgur.com/MZy912B.png">
+  <img src="https://i.imgur.com/Uroonpl.png">
 </p>
 
 Perhaps this doesn't immediately seem useful. However, consider the following two circuits, one without tunnels and one with tunnels:
@@ -217,16 +215,12 @@ There is nothing to submit for this part, but please keep tunnels in mind for fu
 
 ## Splitter/merger
 
-So far, we have seen only 1-bit values on inputs, outputs, and wires. However, multi-bit values are common. For example, a 32-bit number in your computer can be represented as 32 wires that each carry 1 bit. However, we do not want to draw 32 wires every time, and it is preferable draw a single wire that denotes 32 bits.
+So far, we have seen only 1-bit values on inputs, outputs, and wires. However, multi-bit values are common. For example, a 32-bit number in your computer can be represented as 32 wires that each carry 1 bit. However, we do not want to draw 32 wires, and it is preferable to draw a single wire that denotes 32 bits.
 
-To do so in Digital, we first create an input component and set it to have multiple data bits (e.g., 2-bit). We also set its number format to binary.
+Here is an example in Digital. First, we create an input component and set it to 2-bit.
 
 <p align="center">
   <img src="https://i.imgur.com/F2iHpQ4.png">
-</p>
-
-<p align="center">
-  <img src="https://i.imgur.com/Q7LazJj.png">
 </p>
 
 Then we use the splitter/merger component. For example,
@@ -235,25 +229,23 @@ Then we use the splitter/merger component. For example,
   <img src="https://i.imgur.com/twDwoIP.png">
 </p>
 
-While simulating, we set the input's value to `0b10`. The two bits are in the same wire and are sent into the splitter/merger, which splits the 2-bit wire into bit 1 and bit 0. Note that bit 1 is on and bit 0 is off, as expected.
+While simulating, we set the input's value to `0b10`. The wire from the input component contains both bits. This wire is connected to the splitter/merger's input dot, and the 2-bit wire is split into two wires that each contain 1 bit. Note that bit<sub>1</sub> is on and bit<sub>0</sub> is off, as expected.
 
-In general, the splitter/merger component is capable of splitting a multi-bit value into smaller parts or merging multiple values into a single value. To be concise, we'll use the term "splitter" from now on, but you should remember that it can both split and merge.
+In general, the splitter/merger component can split a multi-bit value into smaller parts or merge multiple values into a single value. To be concise, we'll use the term "splitter" from now on, but you should remember that it can both split and merge.
 
-Here's another example, in which we split a 16-bit input into two separate bytes.
+Here's another example, in which we split a 32-bit input into four separate bytes.
 
 <p align="center">
-  <img src="https://i.imgur.com/UurPLJk.png">
+  <img src="https://i.imgur.com/YObxjeP.png">
 </p>
 
 The splitter is configured as follows:
 
 <p align="center">
-  <img src="https://i.imgur.com/yTgC25U.png">
+  <img src="https://i.imgur.com/QvnfEZB.png">
 </p>
 
-The input is 16-bit, so we set "Input Splitting" to 16, which creates the blue input dot labeled 0-15 on the splitter. We want two groups of 8 bits, so we set "Output Splitting" to 8,8. The comma separates the two groups. This creates two red output dots labeled 8-15 and 0-7 on the splitter. Lastly, both outputs are set to be 8-bit.
-
-If the bit widths of the input(s) or output(s) do not match the bit widths of their corresponding connections with the splitter, you will receive an error when you attempt to simulate the circuit.
+The input is 32-bit, so we set "Input Splitting" to 32, which creates the blue input dot labeled 0-31 on the splitter. For four groups of 8 bits, we set "Output Splitting" to "8,8,8,8". This creates four red output dots labeled 24-31, 16-23, 8-15, and 0-7 on the splitter. Lastly, all outputs are 8-bit.
 
 ### Exercise
 
