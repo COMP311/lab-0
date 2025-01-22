@@ -56,6 +56,8 @@ Digital allows us to design, simulate, and test circuits.
 
 A Java Runtime Environment (at least JRE 8) is required to run Digital. You should already have this if you're using the same computer you used in COMP 210 or COMP 301. If not, search online for installation instructions for your specific OS and install. You can verify that it works and check its version with `java --version`.
 
+To install Digital,
+
 1. Go to [Digital's GitHub page](https://github.com/hneemann/Digital).
 2. Click the green Download button at the top of the README (you may need to scroll down slightly).
 3. Unzip the downloaded `.zip` file.
@@ -71,11 +73,9 @@ To start Digital, run `java -jar PATH/TO/Digital.jar`, where `PATH/TO/Digital.ja
 
 ##### Optional steps for convenience
 
-To start Digital without having to type the path to `Digital.jar`, alias the command. Run `echo "alias digital=\"java -jar ABSOLUTE_PATH_TO_DIGITAL_JAR\"" >> $HOME/.zshrc`, replacing `ABSOLUTE_PATH_TO_DIGITAL_JAR` with your **absolute** path to `Digital.jar`.
+To start Digital without having to type the path to `Digital.jar`, alias the command. Run `echo "alias digital=\"java -jar ABSOLUTE_PATH_TO_DIGITAL_JAR\"" >> $HOME/.zshrc`, replacing `ABSOLUTE_PATH_TO_DIGITAL_JAR` with your **absolute** path to `Digital.jar`. Restart your terminal after running this command.
 
 macOS's default shell is zsh, so this alias command is appended to `~/.zshrc`. If your default shell is not zsh (check with `echo $SHELL`), replace `.zshrc` with your shell's configuration file (e.g., `.bashrc` for bash).
-
-Restart your terminal after running this command.
 
 You can now start Digital from any directory by running `digital`. You can also open a specific circuit file by running `digital PATH/TO/circuit.dig`.
 
@@ -126,7 +126,7 @@ macOS users, if control-click does not work for you, try right clicking with two
 
 ## Example circuit
 
-In Digital, open [example.dig](example.dig). This is a simple circuit that contains a light-emitting diode (LED) and a mechanical switch. Ignore the green box labeled "Test" for now.
+In Digital, open [example.dig](example.dig). This is a simple circuit that contains a light-emitting diode (LED) and a mechanical switch.
 
 Simulate the circuit by pressing the triangular Play button at the top. Then, click the switch to toggle it from open to closed, and note how this affects the LED.
 
@@ -140,7 +140,7 @@ In Digital, open [and.dig](and.dig).
 
 In this file, you'll slightly enhance the previous circuit. Specifically, create a circuit that acts like a "mechanical AND gate", where the LED turns on only if both switches are in the closed position. You need only add wires (i.e., wire the two switches in series). Don't use any logic gates or any additional components.
 
-Don't delete or rename the switches. The test cases require the switches to have the exact names given in the template file.
+Don't delete or rename the switches. Our test cases in the green Test Case component require the switches to have the exact names given in the template file.
 
 <details>
   <summary>Click here for instructions if you've already deleted or renamed the switches</summary>
@@ -169,9 +169,9 @@ You should then see a menu like this:
 
 If you don't see this menu and receive an error, then your circuit is invalid (similar to a compilation error when coding). Please read the error message and try to solve the issue.
 
-The menu looks like a truth table!
+The menu is essentially a truth table!
 
-In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. Each row represents a single test case. For each test case, we hardcode the inputs and expected output. Digital then simulates the circuit with the given inputs and checks whether the output is correct or not. If you click on L2 or any other row, you'll see how this works. This will also be very useful for debugging more complicated circuits in the future.
+In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. Each row represents a single test case. For each test case, we provide hardcoded inputs and the expected output. Digital then simulates the circuit with the given inputs and checks whether the output is correct or not. If you click on L2 or any other row, you'll see how this works.
 
 If a test case fails, the menu would look like this:
 
@@ -179,9 +179,9 @@ If a test case fails, the menu would look like this:
   <img src="https://i.imgur.com/apoaRFY.png">
 </p>
 
-In L4, the "E: Z / F: 1" means that for the inputs in L4, the expected output is Z, but the actual output is 1. You could click on L4 to see what happens in the circuit that causes the test failure.
+In L4, the "E: Z / F: 1" means that when the circuit is given the inputs in L4, the expected output is Z, but the actual output is 1. For this circuit or more complicated circuits in the future, if you fail a test case, you could click it (here, L4) to see what happens in the circuit that causes the test failure.
 
-**Note**: Z is a state that is neither logic 0 nor logic 1 but somewhere in between. You will learn more about this in a later lecture. All you need to know for now is that when the LED is off, its state is Z.
+**Note**: Z is a state that is neither logic 0 nor logic 1. You will learn more about this in a later lecture. All you need to know for now is that when the LED is off, its state is Z.
 
 ## Tunnels
 
