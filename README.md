@@ -1,7 +1,7 @@
 <!-- omit in toc -->
 # Lab 0
 
-In this lab, you'll learn how to use [Digital](https://github.com/hneemann/Digital), a digital logic designer and circuit simulator designed for educational purposes. You will also learn about some basic conventions of circuits, such as power, ground, wires, mechanical switch, and light-emitting diode (LED).
+In this lab, you'll learn how to use [Digital](https://github.com/hneemann/Digital), a digital logic designer and circuit simulator designed for educational purposes. You'll also learn about some basic conventions of circuits, such as power, ground, wires, mechanical switch, and light-emitting diode (LED).
 
 <details open>
   <summary>Overview</summary>
@@ -86,7 +86,7 @@ If you encounter an uncommon bug where the Open menu does not display `.dig` fil
 
 The first time you start Digital, you will be greeted with a built-in tutorial. If you do not see it, start it by clicking View > Start Tutorial.
 
-Complete the tutorial, which shows you how to build and simulate a simple circuit with an XOR gate, 2 inputs, and 1 output.
+Complete the tutorial, which shows you how to build and simulate a simple circuit.
 
 ## Tips
 
@@ -177,7 +177,7 @@ If a test case fails, the menu would look like this:
 
 In L4, the "E: Z / F: 1" means that when the circuit is given the inputs in L4, the expected output is Z, but the actual output is 1. For this circuit or more complicated circuits in the future, if you fail a test case, you could click it (here, L4) to see what happens in the circuit that causes the test failure.
 
-**Note**: Z is a state that is neither logic 0 nor logic 1. You will learn more about this in a later lecture. All you need to know for now is that when the LED is off, its state is Z.
+**Note**: Z is a state that is neither logic 0 nor logic 1. You will learn more about this in a later lecture. All you need to know for now is that if the LED is off, its state is Z.
 
 ## Submit your assignment
 
