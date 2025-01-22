@@ -1,7 +1,7 @@
 <!-- omit in toc -->
 # Lab 0
 
-This lab introduces [Digital](https://github.com/hneemann/Digital), an educational software tool for designing and simulating digital circuits. You will also learn about some basic conventions of circuits, such as power, ground, wires, mechanical switch, and light-emitting diode (LED).
+In this lab, you'll learn how to use [Digital](https://github.com/hneemann/Digital), a digital logic designer and circuit simulator designed for educational purposes. You will also learn about some basic conventions of circuits, such as power, ground, wires, mechanical switch, and light-emitting diode (LED).
 
 <details open>
   <summary>Overview</summary>
@@ -14,10 +14,12 @@ This lab introduces [Digital](https://github.com/hneemann/Digital), an education
     - [macOS/Linux](#macoslinux)
       - [Optional steps for convenience](#optional-steps-for-convenience)
 - [Digital tutorial](#digital-tutorial)
-  - [Tips](#tips)
-    - [Documentation](#documentation)
+- [Tips](#tips)
+  - [Documentation](#documentation)
+  - [Settings](#settings)
     - [Component tree view](#component-tree-view)
-    - [Note for macOS users](#note-for-macos-users)
+    - [Disable tunnel dialog](#disable-tunnel-dialog)
+  - [Note for macOS users](#note-for-macos-users)
 - [Example circuit](#example-circuit)
 - [Mechanical AND gate](#mechanical-and-gate)
   - [Testing](#testing)
@@ -45,20 +47,8 @@ Then, follow [these instructions](https://docs.github.com/en/authentication/conn
 Run `git clone <link>`, where `<link>` is the SSH link (not HTTPS) to your Lab 0 repository.
 
 <p align="center">
-  <img src="https://i.imgur.com/aJEcomI.png">
+  <img src="https://i.imgur.com/eFycUZT.png">
 </p>
-
-If you get an error that looks like the following, then the [SSH setup](#ssh-setup) steps were not done correctly. Redo them.
-
-```text
-git@github.com: Permission denied (publickey).
-fatal: Could not read from remote repository.
-
-Please make sure you have the correct access rights
-and the repository exists.
-```
-
-Otherwise, it was successful, and you can confirm by running `ls`.
 
 ### Install Digital
 
@@ -66,9 +56,10 @@ Digital allows us to design, simulate, and test circuits.
 
 A Java Runtime Environment (at least JRE 8) is required to run Digital. You should already have this if you're using the same computer you used in COMP 210 or COMP 301. If not, search online for installation instructions for your specific OS and install. You can verify that it works and check its version with `java --version`.
 
-1. Download a `.zip` file with Digital software files by clicking [here](https://github.com/hneemann/Digital/releases/latest/download/Digital.zip).
-2. Unzip it.
-3. Move the folder (not the `.zip` file) to an easily accessible location on your computer. We will need to access this frequently.
+1. Go to [Digital's GitHub page](https://github.com/hneemann/Digital).
+2. Click the green Download button at the top of the README (you may need to scroll down slightly).
+3. Unzip the downloaded `.zip` file.
+4. Move the extracted folder (not the `.zip` file) to an easily accessible location on your computer. You will need to access this frequently.
 
 #### Windows
 
@@ -101,35 +92,43 @@ The first time you start Digital, you will be greeted with a built-in tutorial. 
 
 Complete the tutorial, which shows you how to build and simulate a simple circuit with an XOR gate, 2 inputs, and 1 output.
 
-### Tips
+## Tips
 
-#### Documentation
+### Documentation
 
-As shown in the tutorial, you can right-click any component to open a menu and configure settings for that component. The menu also contains a "Help" button that opens documentation for that component. Whenever you don't know what a component does or need to review, please refer to the documentation.
+As shown in the tutorial, you can right-click any component to open a menu and configure settings for that component. The menu also contains a "Help" button that opens documentation for that component. Whenever you don't know what a component does or need to review, please refer to the documentation. You can also hover your mouse over a component to see a brief summary.
 
 You may also download a PDF containing all documentation [here](https://github.com/hneemann/Digital/releases).
 
+### Settings
+
+To open settings, click Edit > Settings.
+
 #### Component tree view
 
-To make it easier to access components, you can enable Component Tree View. To do so, click View > Component Tree View.
+Click View > Component Tree View. This menu may make it easier for you to access components.
 
-To make this the default behavior, click Edit > Settings > Component tree view is visible at startup.
+To make this menu open by default, click Edit > Settings > Component tree view is visible at startup.
 
-You may also change the language here, if you want.
+#### Disable tunnel dialog
 
-#### Note for macOS users
+We will soon learn about the Tunnel component, which is very frequently used.
+
+To make working with tunnels more convenient, disable the setting "Show dialog for automatic renaming of tunnels" (which is on by default).
+
+### Note for macOS users
 
 macOS users, if control-click does not work for you, try right clicking with two-finger tap. If this is not already enabled, then do the following:
 
-1. Press Cmd+Space to open Spotlight Search.
-2. Type "trackpad" and press Enter.
+1. Open your computer settings.
+2. Search for "Trackpad" and press Enter.
 3. Set secondary click to "Click or Tap with Two Fingers".
 
 ## Example circuit
 
 In Digital, open [example.dig](example.dig). This is a simple circuit that contains a light-emitting diode (LED) and a mechanical switch. Ignore the green box labeled "Test" for now.
 
-Simulate the circuit by pressing the triangular Play button. Then, click the switch to toggle it and note how this affects the LED.
+Simulate the circuit by pressing the triangular Play button at the top. Then, click the switch to toggle it from open to closed, and note how this affects the LED.
 
 To read about how an LED works, right-click the LED component and click "Help". You may also want to read about the other components Supply voltage (logic 1 or) and Ground (logic 0).
 
@@ -141,7 +140,7 @@ In Digital, open [and.dig](and.dig).
 
 In this file, you'll slightly enhance the previous circuit. Specifically, create a circuit that acts like a "mechanical AND gate", where the LED turns on only if both switches are in the closed position. You need only add wires (i.e., wire the two switches in series). Don't use any logic gates or any additional components.
 
-Don't delete or rename the switches (moving them is fine, though unnecessary). The test cases require the switches to have the specific given names.
+Don't delete or rename the switches. The test cases require the switches to have the exact names given in the template file.
 
 <details>
   <summary>Click here for instructions if you've already deleted or renamed the switches</summary>
@@ -156,7 +155,7 @@ If you decide to add the switches back, the Switch component can be found at Com
 
 To manually verify that your circuit works according to the specification above, click the triangular Play button at the top and test your circuit manually.
 
-To automatically test your circuit, click this button at the top to run the tests in the green Test Case component.
+To automatically test your circuit, click this button at the top to run our tests in the green Test Case component.
 
 <p align="center">
   <img src="https://i.imgur.com/vTOPJbC.png">
@@ -168,11 +167,11 @@ You should then see a menu like this:
   <img src="https://i.imgur.com/UMhr7Kd.png">
 </p>
 
-If you don't see this menu and receive an error, it's likely because you renamed or deleted the given components. To resolve this, see the instructions [above](#mechanical-and-gate).
+If you don't see this menu and receive an error, then your circuit is invalid (similar to a compilation error when coding). Please read the error message and try to solve the issue.
 
-The menu looks like a truth table! Ignore the value "Z" for now - you will learn what this means in a later lecture.
+The menu looks like a truth table!
 
-In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. Each row represents a single test case. For each test case, we hardcode the inputs and expected output. Digital then simulates the circuit with the given inputs and checks whether the output is correct or not. If you click on L2 or any other row, you'll see how this works (and this is also useful for debugging).
+In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. Each row represents a single test case. For each test case, we hardcode the inputs and expected output. Digital then simulates the circuit with the given inputs and checks whether the output is correct or not. If you click on L2 or any other row, you'll see how this works. This will also be very useful for debugging more complicated circuits in the future.
 
 If a test case fails, the menu would look like this:
 
@@ -180,9 +179,9 @@ If a test case fails, the menu would look like this:
   <img src="https://i.imgur.com/apoaRFY.png">
 </p>
 
-In L4, the "E: Z / F: 1" means that for the inputs in L4, the expected output is Z, but the actual output is 1.
+In L4, the "E: Z / F: 1" means that for the inputs in L4, the expected output is Z, but the actual output is 1. You could click on L4 to see what happens in the circuit that causes the test failure.
 
-**Note**: It is unlikely but possible to create a design that seems to work according to the specification given but fails the tests. This would occur if you wire the circuit in a specific improper way. These designs don't pass the tests because they are considered incorrect.
+**Note**: Z is a state that is neither logic 0 nor logic 1 but somewhere in between. You will learn more about this in a later lecture. All you need to know for now is that when the LED is off, its state is Z.
 
 ## Tunnels
 
