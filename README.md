@@ -4,7 +4,7 @@
 In this lab, you'll learn how to use [Digital](https://github.com/hneemann/Digital), a digital logic designer and circuit simulator designed for educational purposes. You'll also learn about some basic conventions of circuits, such as power, ground, wires, mechanical switch, and light-emitting diode (LED).
 
 <details open>
-  <summary>Overview</summary>
+  <summary>Contents</summary>
 
 - [Setup](#setup)
   - [SSH setup](#ssh-setup)
