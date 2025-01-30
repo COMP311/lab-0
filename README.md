@@ -165,6 +165,14 @@ You should then see a menu like this:
 
 If you don't see this menu and receive an error, your circuit is invalid (similar to a compilation error when coding). Please read the error message and try to solve the issue.
 
+<details>
+  <summary>Common errors</summary>
+
+  - Test signal x not found in the circuit!
+    - This error means that the Test Case component expects an input or output component named "x", which doesn't exist in your circuit. Since the template files always label the input/output components with the correct names, this probably means you renamed an input or output component. Note that the names are case-sensitive. To resolve this, if you recognize the name in the error message and know which input or output you renamed, rename it to the proper name given in the error message. If not, look at the template file in your repo's initial commit, and figure out what you changed. Lastly, to view all expected input and output names in a file, right-click the Test Case component, and click Edit (but don't make any changes). The first row contains all expected input and output names.
+
+</details>
+
 The menu is essentially a truth table!
 
 In this table, the `switch_0` and `switch_1` columns are inputs, and `LED` is the output that is checked. Each row represents a single test case. For each test case, we provide hardcoded inputs and the expected output. Digital then simulates the circuit with the given inputs and checks whether the output is correct or not. If you click on L2 or any other row, you'll see how this works.
